@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Reflection;
 
-namespace DataLib
+namespace DataLib.Poco
 {
     public class PocoAdapter
     {

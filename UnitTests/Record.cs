@@ -1,5 +1,6 @@
 using System;
 using DataLib;
+using DataLib.Poco;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
