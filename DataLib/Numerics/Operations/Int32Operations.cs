@@ -8,25 +8,25 @@ namespace DataLib.Numerics.Operations
     {
         public object Add(object a, object b)
         {
-            NumericTypes.MakeSame(ref a, ref b);
+            NumericTypes.Instance.MakeSame(ref a, ref b);
             return (int) a + (int) b;
         }
 
         public object Sub(object a, object b)
         {
-            NumericTypes.MakeSame(ref a, ref b);
+            NumericTypes.Instance.MakeSame(ref a, ref b);
             return (int)a - (int)b;
         }
 
         public object Mul(object a, object b)
         {
-            NumericTypes.MakeSame(ref a, ref b);
+            NumericTypes.Instance.MakeSame(ref a, ref b);
             return (int)a * (int)b;
         }
 
         public object Div(object a, object b)
         {
-            NumericTypes.MakeSame(ref a, ref b);
+            NumericTypes.Instance.MakeSame(ref a, ref b);
             return (int)a / (int)b;
         }
     }

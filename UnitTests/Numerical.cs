@@ -16,7 +16,7 @@ namespace UnitTests
             object a = (byte)1;
             object b = (int)2;
 
-            Assert.IsTrue(NumericTypes.MakeSame(ref a, ref b));
+            Assert.AreEqual(typeof(int), NumericTypes.Instance.MakeSame(ref a, ref b));
             Assert.AreEqual(typeof(int), a.GetType());
             Assert.AreEqual(typeof(int), b.GetType());
             Assert.AreEqual(1, a);
@@ -29,12 +29,11 @@ namespace UnitTests
             object a = (byte)120;
             object b = (int)30;
 
-            var op = new Int32Operations();
-            Assert.AreEqual(150, op.Add(a, b));
-            Assert.AreEqual(typeof(int), op.Add(a, b).GetType());
-            Assert.AreEqual(90, op.Sub(a, b));
-            Assert.AreEqual(3600, op.Mul(a, b));
-            Assert.AreEqual(4, op.Div(a, b));
+            Assert.AreEqual(150, NumericTypes.Instance.Add(a, b));
+            Assert.AreEqual(typeof(int), NumericTypes.Instance.Add(a, b).GetType());
+            Assert.AreEqual(90, NumericTypes.Instance.Sub(a, b));
+            Assert.AreEqual(3600, NumericTypes.Instance.Mul(a, b));
+            Assert.AreEqual(4, NumericTypes.Instance.Div(a, b));
         }
     }
 }
