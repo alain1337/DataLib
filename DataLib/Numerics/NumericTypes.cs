@@ -93,6 +93,12 @@ namespace DataLib.Numerics
             return Invoke2(a, b, o => o.Div(a, b));
         }
 
+        public int Compare(object a, object b)
+        {
+            var t = GetTypeIndex(MakeSame(ref a, ref b));
+            return _operations[t].Compare(a, b);
+        }
+
         object Invoke2(object a, object b, Func<INumericalOperation, object> function)
         {
             var t = GetTypeIndex(MakeSame(ref a, ref b));

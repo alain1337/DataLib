@@ -29,5 +29,11 @@ namespace DataLib.Numerics.Operations
             NumericTypes.Instance.MakeSame(ref a, ref b);
             return (int)a / (int)b;
         }
+
+        public int Compare(object a, object b)
+        {
+            NumericTypes.Instance.MakeSame(ref a, ref b);
+            return ((int) a).CompareTo(b);
+        }
     }
 }

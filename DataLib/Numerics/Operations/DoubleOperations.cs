@@ -8,22 +8,32 @@ namespace DataLib.Numerics.Operations
     {
         public object Add(object a, object b)
         {
-            throw new NotImplementedException();
+            NumericTypes.Instance.MakeSame(ref a, ref b);
+            return (double)a + (double)b;
         }
 
         public object Sub(object a, object b)
         {
-            throw new NotImplementedException();
+            NumericTypes.Instance.MakeSame(ref a, ref b);
+            return (double)a - (double)b;
         }
 
         public object Mul(object a, object b)
         {
-            throw new NotImplementedException();
+            NumericTypes.Instance.MakeSame(ref a, ref b);
+            return (double)a * (double)b;
         }
 
         public object Div(object a, object b)
         {
-            throw new NotImplementedException();
+            NumericTypes.Instance.MakeSame(ref a, ref b);
+            return (double)a / (double)b;
+        }
+
+        public int Compare(object a, object b)
+        {
+            NumericTypes.Instance.MakeSame(ref a, ref b);
+            return ((double)a).CompareTo(b);
         }
     }
 }
