@@ -27,13 +27,9 @@ namespace DataLib.Pivot.Aggregators
                 if (Count == 1)
                     return _sum.First();
                 if (Count % 2 == 0)
-                {
-                    return (_sum.Skip(Count / 2 - 1).First() + _sum.Skip(Count / 2).First()) / 2;
-                }
+                    return (_sum[Count / 2 - 1] + _sum[Count / 2]) / 2;
                 else
-                {
-                    return _sum.Skip(Count / 2).First();
-                }
+                    return _sum[Count / 2];
             }
         }
 
