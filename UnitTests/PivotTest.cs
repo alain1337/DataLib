@@ -30,6 +30,12 @@ namespace UnitTests
         {
             var pivot = new Pivot<string, int>(_data, new[] { "Counter" });
             Assert.AreEqual(_data.Count, pivot.GrandTotal[0].Value);
+
+            pivot = new Pivot<string, int>(_data, new[] { "Sum" });
+            Assert.AreEqual(1130, pivot.GrandTotal[0].Value);
+
+            pivot = new Pivot<string, int>(_data, new[] { "Average" });
+            Assert.AreEqual(188.33333, Math.Round(Convert.ToDouble(pivot.GrandTotal[0].Value), 5));
         }
     }
 }

@@ -8,9 +8,7 @@ namespace DataLib.Numerics
 {
     public class NumericTypes : INumericalOperation
     {
-        public static NumericTypes Instance { get; } = new NumericTypes();
-
-        public Type[] SupportedTypes { get; } =
+        public static readonly Type[] SupportedTypes =
         {
             typeof(byte),
             typeof(Int16),
@@ -20,6 +18,8 @@ namespace DataLib.Numerics
             typeof(double),
             typeof(decimal)
         };
+        
+        public static NumericTypes Instance { get; } = new NumericTypes();
 
         readonly Dictionary<Type, int> _typeMap = new Dictionary<Type, int>();
         readonly INumericalOperation[] _operations;
@@ -63,6 +63,14 @@ namespace DataLib.Numerics
             if (!_typeMap.ContainsKey(t))
                 throw new Exception("Unsupported type: " + t.Name);
             return _typeMap[t];
+        }
+
+        public bool IsSupported(Type t) => _typeMap.ContainsKey(t);
+        public bool IsSupported(object o) => o != null && _typeMap.ContainsKey(o.GetType());
+
+        public object GetDefaultValue(Type type)
+        {
+            return type.IsValueType ? Activator.CreateInstance(type) : null;
         }
 
         NumericTypes()
