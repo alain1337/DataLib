@@ -35,7 +35,10 @@ namespace UnitTests
             Assert.AreEqual(1130, pivot.GrandTotal[0].Value);
 
             pivot = new Pivot<string, int>(_data, new[] { "Average" });
-            Assert.AreEqual(188.33333, Math.Round(Convert.ToDouble(pivot.GrandTotal[0].Value), 5));
+            Assert.AreEqual(188.33333m, Math.Round(Convert.ToDecimal(pivot.GrandTotal[0].Value), 5));
+
+            pivot = new Pivot<string, int>(_data, new[] { "Median" });
+            Assert.AreEqual(150m, Math.Round(Convert.ToDecimal(pivot.GrandTotal[0].Value), 5));
         }
     }
 }

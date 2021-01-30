@@ -12,12 +12,12 @@ namespace DataLib.Pivot.Aggregators
             if (!NumericTypes.Instance.IsSupported(v))
                 return;
             Count++;
-            _sum = Convert.ToDouble(NumericTypes.Instance.Add(_sum, v));
+            _sum = (decimal)NumericTypes.Instance.Add(_sum, v);
         }
 
         public int Count { get; private set; }
-        public object Value => Count > 0 ? _sum / Count : 0.0;
+        public object Value => Count > 0 ? _sum / Count : 0m;
 
-        double _sum = 0.0;
+        decimal _sum;
     }
 }

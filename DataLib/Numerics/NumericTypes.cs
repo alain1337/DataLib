@@ -19,6 +19,9 @@ namespace DataLib.Numerics
             typeof(decimal)
         };
         
+        public static Type SmallestType = SupportedTypes[0];
+        public static Type BiggestType = SupportedTypes[^1];
+
         public static NumericTypes Instance { get; } = new NumericTypes();
 
         readonly Dictionary<Type, int> _typeMap = new Dictionary<Type, int>();
